@@ -17,13 +17,14 @@ const port = 3000
   //   );
 
   const clientStub = new dgraph.DgraphClientStub(
-    "65.1.246.180:9080"
+    "localhost:9080"
   );
     
 const dgraphClient = new dgraph.DgraphClient(clientStub);
 // dgraphClient.setCloudApiKey("ODlkYTgyYTVjNDg2ZjkxODllY2UwOWY0ZjIzYTBlZDY=");
 
 app.get('/',async (req, res, next) => {
+  console.log('sent')
   const query = `query getLanguage($name: string) {
     getLanguage(func: eq(Language.engText, $name)) {
         uid,
